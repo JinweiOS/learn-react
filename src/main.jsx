@@ -3,17 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 
+const parentMsg = '笑死了'
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
-function updateTime() {
-  const ele = (
-    <div>
-      <h2>{new Date().toLocaleTimeString()}</h2>
-    </div>
-  )
-  root.render(ele)
+function receive(event) {
+  console.log('hello')
+  console.log(event)
 }
 
-setInterval(() => {
-  updateTime()
-}, 1000)
+root.render(<div>
+  <App msg={parentMsg}></App>
+</div>)

@@ -1,23 +1,25 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
+import React from 'react'
 import './App.css'
+import Hello from './components/hello'
 
-function changeCount(count) {
-  return count + 1;
-}
+const msg = '粮草'
 
-function App() {
-  const [count, setCount] = useState(0)
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
 
-  return (
-    <div className="App">
-      <div className="card">
-        <button onClick={() => setCount(value => value + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </div>
-  )
+  receive(event) {
+    console.log('hahah', event)
+  }
+
+  render() {
+    return (
+      <Hello handleClick={this.receive.bind(this)}></Hello>
+    )
+  }
 }
 
 export default App
